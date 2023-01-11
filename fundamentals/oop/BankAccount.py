@@ -32,9 +32,17 @@ class BankAccount:
         return self
 
     # @classmethod
-    # def display_all_acounts(cls):
+    # def display_all_accounts(cls):
     #     for all_accounts in cls.all_accounts:
-    #         print(f"{all_accounts.user} has : ${all_accounts.balance} and interest rate is {all_accounts.rate}%")
+    #         print(f"{all_accounts.useracc} has : ${all_accounts.balance} and interest rate is {all_accounts.rate}%")
+
+# user1= BankAccount('Jemma', 0.5, 600)
+# user1.deposit(50).deposit(25).deposit(25).withdraw(150).yield_interest().display_account_info()
+
+# user2 = BankAccount('Fitz', 0.1, 500)
+# user2.deposit(10).deposit(10).withdraw(50).withdraw(25).withdraw(25).withdraw(50).display_account_info().yield_interest()
+
+# useracc.display_all_accounts()
 
 class User:
     def __init__(self, name, email, account):
@@ -70,9 +78,3 @@ useracc2 = User('Tony Stark', 'iamironman@starkindustries.com',[BankAccount(int_
 useracc2.make_deposit(500,1).make_withdrawal(50,1).display_user_balance(1)
 
 useracc1.transfer_money(200, useracc2, 0, 1)
-# useracc1.deposit(50).deposit(25).deposit(25).withdraw(150).yield_interest().display_account_info()
-
-# useracc2 = BankAccount('Tony Stark', 'iamironman@starkindustries.com')
-# useracc2.deposit(10).deposit(10).withdraw(50).withdraw(25).withdraw(25).withdraw(50).display_account_info().yield_interest()
-
-# User.display_all_acounts()
