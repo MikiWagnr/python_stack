@@ -37,10 +37,10 @@ class BankAccount:
     #         print(f"{all_accounts.user} has : ${all_accounts.balance} and interest rate is {all_accounts.rate}%")
 
 class User:
-    def __init__(self, name, email):
+    def __init__(self, name, email, account):
         self.name = name
         self.email = email
-        self.account = [BankAccount(int_rate = 0.02, balance = 0), BankAccount(int_rate = 0.1, balance = 1000)]
+        self.account = account
 
     def make_deposit(self, amount,i):
         self.account[i].deposit(amount)
@@ -55,10 +55,21 @@ class User:
         print(f"Current balance: ${self.account[i].balance}")
         return self
 
+    def transfer_money(self,amount,otheruser,i,j):
+        self.account[i].withdraw(amount)
+        otheruser.account[j].deposit(amount)
+        self.account[i].display_account_info()
+        otheruser.account[j].display_account_info()
 
 
-useracc1 = User('Charles Xavier', 'TomemyXmen@Xintstitute.com')
-useracc1.make_deposit(100,1).make_withdrawal(50,1).display_user_balance(1)
+
+useracc1 = User('Charles Xavier', 'TomemyXmen@Xintstitute.com',[BankAccount(int_rate = 0.02, balance = 0), BankAccount(int_rate = 0.1, balance = 1000)])
+useracc1.make_deposit(500,0).make_withdrawal(50,0).display_user_balance(0)
+
+useracc2 = User('Tony Stark', 'iamironman@starkindustries.com',[BankAccount(int_rate = 0.02, balance = 0), BankAccount(int_rate = 0.1, balance = 1000)])
+useracc2.make_deposit(500,1).make_withdrawal(50,1).display_user_balance(1)
+
+useracc1.transfer_money(200, useracc2, 0, 1)
 # useracc1.deposit(50).deposit(25).deposit(25).withdraw(150).yield_interest().display_account_info()
 
 # useracc2 = BankAccount('Tony Stark', 'iamironman@starkindustries.com')
