@@ -40,25 +40,25 @@ class User:
     def __init__(self, name, email):
         self.name = name
         self.email = email
-        self.account = BankAccount(int_rate = 0.02, balance = 0)
+        self.account = [BankAccount(int_rate = 0.02, balance = 0), BankAccount(int_rate = 0.1, balance = 1000)]
 
-    def make_deposit(self, amount):
-        self.account.deposit(amount)
+    def make_deposit(self, amount,i):
+        self.account[i].deposit(amount)
         return self
 
-    def make_withdrawal(self, amount):
-        self.account.withdraw(amount)
+    def make_withdrawal(self, amount,i):
+        self.account[i].withdraw(amount)
         return self
 
-    def display_user_balance(self):
-        self.account.display_account_info()
-        print(f"Current balance: ${self.account.balance}")
+    def display_user_balance(self,i):
+        self.account[i].display_account_info()
+        print(f"Current balance: ${self.account[i].balance}")
         return self
 
 
 
 useracc1 = User('Charles Xavier', 'TomemyXmen@Xintstitute.com')
-useracc1.make_deposit(100).make_withdrawal(50).display_user_balance()
+useracc1.make_deposit(100,1).make_withdrawal(50,1).display_user_balance(1)
 # useracc1.deposit(50).deposit(25).deposit(25).withdraw(150).yield_interest().display_account_info()
 
 # useracc2 = BankAccount('Tony Stark', 'iamironman@starkindustries.com')
