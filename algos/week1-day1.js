@@ -1,8 +1,8 @@
 /* 
-  Acronyms
-  Create a function that, given a string, returns the string’s acronym 
-  (first letter of each word capitalized). 
-  Do it with .split first if you need to, then try to do it without
+Acronyms
+Create a function that, given a string, returns the string’s acronym 
+(first letter of each word capitalized). 
+Do it with .split first if you need to, then try to do it without
 */
 
 const str1 = "object oriented programming";
