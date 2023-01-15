@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.main{
+    margin: 0 auto;
+    padding: 20px;
+    width: 500px;
+    color: white;
+    background-color: rgb(56, 57, 57);
+}
+h1{
+    color: rgb(255, 217, 0);
+}
