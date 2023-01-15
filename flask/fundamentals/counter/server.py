@@ -8,7 +8,7 @@ def counting_views():
     if 'views' in session:
         session['views'] += 1
     else:
-        session['views'] = 0
+        session['views'] = 1
     return render_template("index.html")
 
 @app.route('/add2')
