@@ -8,12 +8,18 @@ def counting_views():
     if 'views' in session:
         session['views'] += 1
     else:
+        session['count'] = 0
         session['views'] = 1
     return render_template("index.html")
 
 @app.route('/add2')
 def increase_by2():
-    session['views']+=1
+    if 'count' in session:
+        session['count'] += 2
+        session['views'] -= 1
+    else:
+        session['count'] = 2
+        # session['views'] -= 1
     return redirect('/')
 
 @app.route('/destroy_session')
