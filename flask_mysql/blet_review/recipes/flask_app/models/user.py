@@ -1,11 +1,11 @@
 from flask_app.config.mysqlconnection import connectToMySQL
-# TODO add email validation
+#add email validation
 import re	# the regex module
 # create a regular expression object that we'll use later   
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$') 
 # PASSWORD_REGEX = re.compile(r'^(?=.[a-z])(?=.[A-Z])(?=.*\d)[a-zA-Z\d]')
 
-DATABASE = 'login_reg'
+DATABASE = 'recipes'
 
 from flask_app import flash
 
