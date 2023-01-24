@@ -3,7 +3,7 @@ from flask_app.config.mysqlconnection import connectToMySQL
 import re	# the regex module
 # create a regular expression object that we'll use later   
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$') 
-# PASSWORD_REGEX = re.compile(r'^(?=.[a-z])(?=.[A-Z])(?=.*\d)[a-zA-Z\d]')
+PASSWORD_REGEX = re.compile(r'^(?=.[a-z])(?=.[A-Z])(?=.*\d)[a-zA-Z\d]')
 
 DATABASE = 'login_reg'
 
@@ -49,9 +49,9 @@ class User:
         if not EMAIL_REGEX.match(user['email']): 
             flash("Invalid email address!")
             is_valid = False
-        # if not PASSWORD_REGEX.match(user['password']): 
-        #     flash("Invalid password!")
-        #     is_valid = False
+        if not PASSWORD_REGEX.match(user['password']): 
+            flash("Invalid password!")
+            is_valid = False
         if len(user['password']) < 8:
             is_valid = False
             flash("password must be at least 8 characters")
