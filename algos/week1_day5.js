@@ -39,7 +39,7 @@ function makeFrequencyTable(arr) {
         }
     }
     return obj
- }
+}
 
 console.log(makeFrequencyTable(arr1))
 console.log(makeFrequencyTable(arr2))

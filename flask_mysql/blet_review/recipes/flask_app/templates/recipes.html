@@ -12,10 +12,10 @@
 
 <body>
     <h1>Welcome back {{session.first_name}}</h1>
-    <h3>user_id = {{session.user_id}}</h3>
+    {#<h3>user_id = {{session.user_id}}</h3>#}
 
-    <a href="/logout">logout</a>
-    <a href="/recipes/new">create recipe</a>
+    <button onclick="location.href='/logout'">logout</button>
+    <button onclick="location.href='/recipes/new'">Create Recipe</button>
     <table class="table">
         <thead>
             <tr>
@@ -30,21 +30,22 @@
             <tr>
                 <th>{{recipe.name}}</th>
                 <td>
-                    {% if recipe.under_30 %}
+                    {% if recipe.quick_meal == '1' %}
                     Yes
                     {% else %}
                     No
                     {% endif %}
+                    {#{{recipe.quick_meal}}#}
                 </td>
                 <td>{{recipe.first_name}}</td>
                 <td>
-                    <a href="/recipes/{{recipe.id}}">view recipe</a>
+                    <button onclick="location.href='/recipes/{{recipe.id}}'">View Recipe</button>
                     {% if recipe.user_id == session.user_id %}
-                    |<a href="/recipes/edit/{{recipe.id}}">edit</a>|
-                    <a href="">delete</a>
+                    |<button onclick="location.href='/recipes/edit/{{recipe.id}}'">Edit</button>|
+                    <button onclick="location.href='/delete/recipe/{{recipe.id}}'">Delete</button>
                     {% endif %}
                 </td>
-                <td>{{recipe.user_id}}</td>
+                {# <td>{{recipe.user_id}}</td> #}
             </tr>
             {% endfor %}
 

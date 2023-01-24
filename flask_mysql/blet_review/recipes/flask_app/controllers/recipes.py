@@ -22,10 +22,24 @@ def create_recipe():
 @app.route('/recipes/<int:id>')
 def show_recipe(id):
     data = {'id': id}
-    return render_template("recipe.html", recipe = Recipe.get_one(data))
+    return render_template('recipe.html', recipe = Recipe.get_one(data))
 
-@app.route("/recipes/edit/<int:id>")
+@app.route('/recipes/edit/<int:id>')
 def edit_recipe(id):
     data = {'id': id}
-    return render_template("edit.html", recipe = Recipe.get_one(data))
+    return render_template('edit.html', recipe = Recipe.get_one(data))
     
+
+@app.route('/recipes/update', methods = ['POST'])
+def update_recipe():
+    print(request.form)
+    if not Recipe.validate_recipe(request.form):
+        return redirect(f'/recipes/edit/{request.form["id"]}')
+    Recipe.update(request.form)
+    return redirect('/recipes')
+
+@app.route('/delete/recipe/<int:id>')
+def delete(id):
+    data = {'id': id}
+    Recipe.delete(data)
+    return redirect('/recipes')
