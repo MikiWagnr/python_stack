@@ -71,6 +71,10 @@ class Recipe:
         if not 'quick_meal' in recipe:
             is_valid = False
             flash('Under 30 field cannot be empty')
+            #validating integers
+            #if int(recipe['number_served']<=0):
+            #is_valid = False
+            #flash('recipe has to serve at least 1 person')
         return is_valid
 
     
